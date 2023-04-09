@@ -1,0 +1,29 @@
+.imgMini:hover{
+   opacity: 0.8;
+}
+
+#imgArea{
+   background-color: #fff;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   margin: 0;
+   border-radius: 3px;
+   
+}
+
+#imgZoom{
+   box-shadow: 2px 2px 1px #3b3a3a;
+   height: 500px;
+   width: 500px;
+   overflow: hidden;
+   border-radius: 3px;
+}
+
+#figure {
+   transform-origin: center;
+   object-fit: cover;
+   height: 100%;
+   width: 100%;
+   cursor: zoom-in;
+}

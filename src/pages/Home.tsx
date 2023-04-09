@@ -1,59 +1,57 @@
-import { RButton } from '../components/Button/Button';
-import { Card } from "../components/Card";
-import {
-  Box,
-  Center,
-  Container,
-  Heading, 
-  Input
-} from '@chakra-ui/react';
-import { useContext, useState } from 'react';
-import {login} from "../services/login"
-import { useNavigate } from 'react-router-dom';
-import { AppContext } from '../components/AppContext';
-import { changeLocalStorage } from '../services/storage';
-
-const Home = () => {
-  const [email, setEmail] = useState<string>('') 
-  const [password, setPassword] = useState<string> ('')
-  const {setIsLoggedIn} = useContext(AppContext) 
-  const navigate = useNavigate()
-  
-  const validateUser = async (email: string, password:string) => {
-    const loggedIn = await login(email, password)
+import "./Home.css"
+import { Carousel } from "../components/Carousel/Carousel"
+import { Card } from "../components/Card/Card"
+import {Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
+import CardInfo from "../components/Card/CardInfo"
+import { useEffect, useState } from "react"
+import { api } from "../api"
+import { Link } from "react-router-dom"
+import tecladoimage from "../image/teclado-gamer.png"
+import mouseimage from "../image/mouse-gamer.png"
+interface UserData  {
+    title: string
+    img: string
+    cash: string
+    link: string
     
-    
-    if(!loggedIn){
-      return alert('Email ou senha inválido')
-    }
-
-    setIsLoggedIn(true)
-    changeLocalStorage({
-      login:true
-    })
-    navigate('/conta/2')
-  }
-
-  return (
-              <Box color='#2eccdb'> 
-                <Card> 
-                  <Container maxW='container.sm' padding='25px'>
-                      <Box background='#6a9da6' padding='5' borderRadius='5px' boxShadow='1px 1px 5px #195157'>
-                          <Center>
-                              <Heading textShadow='1px 1px 3px #3f676b' as='h1' fontSize="xl" color='#2eccdb'>
-                                  Faça o login
-                              </Heading>
-                          </Center>
-                          <Input boxShadow='1px 1px 2px #3f676b' m='1' placeholder="Email" value= {email} onChange={(event) => setEmail(event.target.value)}/>
-                          <Input boxShadow='1px 1px 2px #3f676b' m='1' placeholder="password" value = {password} onChange={(event) => setPassword(event.target.value) }/>
-                          <Center>
-                              <RButton onClick = {() =>validateUser(email, password)}/>
-                          </Center>
-                      </Box>
-                  </Container>
-                </Card>
-              </Box>
-    )
 }
 
-export default Home;
+export const Home = () => {
+    
+    const [userData, setUserData] = useState<UserData> ()
+    useEffect(() => {
+        const getData = async () => {
+            const data:any|UserData = await api
+            setUserData(data)   
+        }
+        getData()
+    }, [])
+
+    
+    return(
+        <>
+            <Card>
+                <Carousel/>
+                <Heading id='titleThree' mt='10px' color='black' as='h3' size='md'> DESTAQUES </Heading>
+                <Container maxWidth='1200px'>
+                    <SimpleGrid  minChildWidth='240px' columns={4} spacing='3px'>
+                        <Link to='/produtos/aa'><Box className="cardInfo"><CardInfo title={`${userData?.title}`} img={`${userData?.img}`} cash={userData?.cash} cashtotal="De R$270 por:" cashfees="12x de R$22,50 sem juros"/></Box></Link>
+                        <Box className="cardInfo"><CardInfo title={`${userData?.title}`} img={`${userData?.img}`} cash={userData?.cash} cashtotal="De R$270 por:" cashfees="12x de R$22,50 sem juros"/></Box>
+                        <Box className="cardInfo"><CardInfo title={`${userData?.title}`} img={`${userData?.img}`} cash={userData?.cash} cashtotal="De R$270 por:" cashfees="12x de R$22,50 sem juros"/></Box>
+                        <Box className="cardInfo"><CardInfo title={`${userData?.title}`} img={`${userData?.img}`} cash={userData?.cash} cashtotal="De R$270 por:" cashfees="12x de R$22,50 sem juros"/></Box>
+                        
+                        <Box className="cardInfo"><CardInfo title={`Teclado Gamer Mecânico Redragon Shrapnel Rgb US Preto K589`} img={`${tecladoimage}`} cash={'435,90'} cashtotal="De R$550 por:" cashfees={"12x de R$45,83 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Teclado Gamer Mecânico Redragon Shrapnel Rgb US Preto K589`} img={`${tecladoimage}`} cash={'435,90'} cashtotal="De R$550 por:" cashfees={"12x de R$45,83 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Teclado Gamer Mecânico Redragon Shrapnel Rgb US Preto K589`} img={`${tecladoimage}`} cash={'435,90'} cashtotal="De R$550 por:" cashfees={"12x de R$45,83 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Teclado Gamer Mecânico Redragon Shrapnel Rgb US Preto K589`} img={`${tecladoimage}`} cash={'435,90'} cashtotal="De R$550 por:" cashfees={"12x de R$45,83 sem juros"}/></Box>
+
+                        <Box className="cardInfo"><CardInfo title={`Mouse Gamer Redragon Cobra Chroma 10000dpi M711`} img={`${mouseimage}`} cash={'152,99'} cashtotal="De R$220 por:" cashfees={"12x de R$18,33 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Mouse Gamer Redragon Cobra Chroma 10000dpi M711`} img={`${mouseimage}`} cash={'152,99'} cashtotal="De R$220 por:" cashfees={"12x de R$18,33 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Mouse Gamer Redragon Cobra Chroma 10000dpi M711`} img={`${mouseimage}`} cash={'152,99'} cashtotal="De R$220 por:" cashfees={"12x de R$18,33 sem juros"}/></Box>
+                        <Box className="cardInfo"><CardInfo title={`Mouse Gamer Redragon Cobra Chroma 10000dpi M711`} img={`${mouseimage}`} cash={'152,99'} cashtotal="De R$220 por:" cashfees={"12x de R$18,33 sem juros"}/></Box>
+                    </SimpleGrid>
+                </Container>  
+            </Card>
+        </>
+    )
+}

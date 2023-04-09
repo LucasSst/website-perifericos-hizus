@@ -1,21 +1,14 @@
 import { Route, Routes } from "react-router-dom"
-import { AppContext } from "./components/AppContext"
-import Conta from "./pages/Conta"
-import ContaInfo from "./pages/ContaInfo"
-import Home from "./pages/Home"
-import { useContext } from "react"
-
+import { Home } from "./pages/Home"
+import { Product } from "./pages/Product"
 
 const MainRoutes = () => {
-    const {isLoggedIn} = useContext(AppContext)
-    
-    return (
+    return(
         <Routes>
-            <Route path='/' element={<Home />} />
-            <Route path='/conta/:id' element={ isLoggedIn ? <Conta /> : <Home />} /> 
-            <Route path='/infoconta' element={<ContaInfo />} />
-        </Routes> 
+            <Route path='/' element={<Home/>}></Route>
+            <Route path='/produtos/:id' element={<Product/>}></Route>
+        </Routes>
     )
 }
 
-export default MainRoutes
+export default MainRoutes;
