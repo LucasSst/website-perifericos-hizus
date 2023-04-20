@@ -6,10 +6,33 @@ import imgMini3 from '../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-
 import './Product.css'
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Description } from '../components/Description/Description'
+import { api } from '../api'
+interface productApi {
+    title: string,
+    img: string,
+    cash: {
+        cashVista: string,
+        cashCredito: string,
+        cashJuros:string
+    }
+    
+}
 
 export const Product = () => {
+
+    const [productApi, setproductApi] = useState<productApi> ()
+    useEffect(() => {
+        const getProduct = async () => {
+            const productAPI:any|productApi = await api
+            setproductApi(productAPI)   
+        }
+        getProduct()
+    }, [])
+
+
+
     
     //Radio
     const [value, setValue] = React.useState('1')   
@@ -91,10 +114,10 @@ export const Product = () => {
                     </VStack>
 
                     <Box m={isNotSmallerScreen ? '0px 5px' : '0px auto'}>
-                        <Heading as='h1' size='md'>Mouse Gamer Redragon Cobra Chroma 10000dpi M711</Heading>
+                        <Heading as='h1' size='md'>{`${productApi?.title}`}</Heading>
                             <Box  mt='15px' >
                                 <Text  as='s'>De R$220 por: </Text>
-                                <Text color='green.600' fontSize='40px'> R$152,99</Text>
+                                <Text color='green.600' fontSize='40px'>  R$152,99</Text>
                                 <Text fontSize='12px'>  à vista com 15% de desconto no pix ou boleto </Text>
                             </Box>
                             <Box m='15px 0px'>
