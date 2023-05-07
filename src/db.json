@@ -1,0 +1,19 @@
+{
+    "produtos": {
+        "teclados": {
+            "produto": {
+                "id": 1,
+                "title": "título teste",
+                "image": ""
+            }
+            
+        },
+        "mouses": {
+
+        },
+        "headset": {
+
+        }
+    }
+
+}
