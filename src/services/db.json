@@ -1,0 +1,11 @@
+{
+    "produtos": [
+        {
+            "id": 1,
+            "title":"Headset Gamer Ninja Shadow, 3.5mm + USB, PC, Rainbow, Drivers 50mm, Black",
+            "cash":170,
+            "category_id":1,
+            "link":"produto/HeadsetGamerNinjaShadow3Black"
+        }
+    ]
+}

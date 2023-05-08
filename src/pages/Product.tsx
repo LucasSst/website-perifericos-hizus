@@ -8,7 +8,7 @@ import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
 import { Description } from '../components/Description/Description'
-import { api } from '../api'
+import { api } from '../services/api'
 interface productApi {
     title: string,
     img: string,
