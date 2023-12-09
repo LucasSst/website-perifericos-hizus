@@ -1,7 +1,7 @@
-import imageheadset from "../src/image/headset-gamer.png"
+import imageheadset from "../../src/image/headset-gamer.png"
 
-import imagemouse from "../src/image/mouse-gamer.png"
-
+import imagemouse from "../../src/image/mouse-gamer.png"
+import "./db.json"
 const headset = {
     title: 'Headset Gamer Ninja Shadow, 3.5mm + USB, PC, Rainbow, Drivers 50mm, Black',
     img: imageheadset,
@@ -22,3 +22,4 @@ export const api = new Promise( ( resolve) => {
      resolve(headset)
 
 });
+

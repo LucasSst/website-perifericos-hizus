@@ -1,14 +1,14 @@
 import { Box, Breadcrumb, BreadcrumbItem, BreadcrumbLink, Button, Container, Flex, Heading, Img, Radio, RadioGroup, Show, Stack, Text, VStack, useMediaQuery} from '@chakra-ui/react'
-import imgProduct from '../image/mouse-gamer.png'
-import imgMini1 from '../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_1.jpg'
-import imgMini2 from '../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_2.jpg'
-import imgMini3 from '../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_3.jpg'
+import imgProduct from '../../image/mouse-gamer.png'
+import imgMini1 from '../../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_1.jpg'
+import imgMini2 from '../../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_2.jpg'
+import imgMini3 from '../../image/mouse-gamer-redragon-cobra-chroma-rgb-12400dpi-7-botoes-preto-m711-v2_3.jpg'
 import './Product.css'
 import { ChevronRightIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import React, { useEffect, useState } from 'react'
-import { Description } from '../components/Description/Description'
-import { api } from '../services/api'
+import { Description } from '../../components/Description/Description'
+import { api } from '../../services/api'
 interface productApi {
     title: string,
     img: string,

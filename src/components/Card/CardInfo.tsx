@@ -3,7 +3,7 @@ import {
     Container,
     Text
  } from "@chakra-ui/react"
-import "../../pages/Home.css"
+import "../../pages/home/home.css"
 
 interface ICardInfo{
     title?:string

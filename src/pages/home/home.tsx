@@ -1,13 +1,13 @@
-import "./Home.css"
-import { Carousel } from "../components/Carousel/Carousel"
-import { Card } from "../components/Card/Card"
+import "./home.css"
+import { Carousel } from "../../components/Carousel/Carousel"
+import { Card } from "../../components/Card/Card"
 import {Box, Container, Heading, SimpleGrid } from "@chakra-ui/react"
-import CardInfo from "../components/Card/CardInfo"
+import CardInfo from "../../components/Card/CardInfo"
 import { useEffect, useState } from "react"
-import { api } from "../services/api"
+import { api } from "../../services/api"
 import { Link } from "react-router-dom"
-import tecladoimage from "../image/teclado-gamer.png"
-import mouseimage from "../image/mouse-gamer.png"
+import tecladoimage from "../../image/teclado-gamer.png"
+import mouseimage from "../../image/mouse-gamer.png"
 interface UserData  {
     title: string
     img: string

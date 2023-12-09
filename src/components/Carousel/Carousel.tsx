@@ -1,7 +1,7 @@
 import imageteclado from "../../image/teclado-gamer.png"
 import imagemouse from "../../image/mouse-gamer.png"
 import imageheadset from "../../image/headset-gamer.png"
-import "../../pages/Home.css"
+import "../../pages/home/home.css"
 import { Box, Heading } from "@chakra-ui/react"
 
 
